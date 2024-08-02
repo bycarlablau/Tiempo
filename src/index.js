@@ -45,14 +45,41 @@ function searchCity(city) {
     axios.get(apiUrl).then(refreshWeather);
 }
 
-function handlesearchsubmit(event) {
+function handleSearchSubmit(event) {
     event.preventDefault();
     let searchInput = document.querySelector("#search-form-input");
     
     searchCity(searchInput.value);
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+      <div class="tiempo-app-forecast-day">
+        <div class="tiempo-app-forecast-date">${day}</div>
+        <div class="tiempo-app-forecast-icon">🌤️</div>
+        <div class="tiempo-app-forecast-temperatures">
+          <div class="tiempo-app-forecast-temperature">
+            <strong>15º</strong>
+          </div>
+          <div class="tiempo-app-forecast-temperature">9º</div>
+        </div>
+      </div>
+    `;
+  });
+
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = forecastHtml;
+}
+
 let searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handlesearchsubmit);
+searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 searchCity("Amsterdam");
+displayForecast();
+
