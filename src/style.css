@@ -72,8 +72,8 @@ main{
 }
 
 .tiempo-app-icon {
-  font-size: 44px;
-  margin-top: 22px;
+   width: 88px;
+  height: 88px;
 }
 
 .tiempo-app-temperature {
@@ -82,7 +82,7 @@ main{
 }
 
 .tiempo-app-unit {
-  margin-top: 16px;
+  margin-top: 6px;
   font-size: 28px;
 }
 
